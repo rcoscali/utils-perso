@@ -33,7 +33,7 @@ function add_dir_component_to_var {
 #
 # del_dir_component_from_var
 #
-# Function for removing a dir comp to a path list env var as
+# Function for removing a dir comp from a path list env var as
 # PATH, LD_LIBRARY_PATH, or MANPATH.
 # If the env var is not empty, it process the env var.
 # This function takes care of removing leading colon if some
