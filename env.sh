@@ -122,6 +122,11 @@ eval ${action} /usr/local/share/man/fr.ISO8859-1 MANPATH
 # Add usr local share man to man path
 eval ${action} /usr/local/share/man MANPATH
 
+test -z $LD_LIBRARY_PATH && unset LD_LIBRARY_PATH
+test -z $LD_RUN_PATH && unset LD_RUN_PATH
+test -z $PKG_CONFIG_PATH && unset PKG_CONFIG_PATH
+test -z $MANPATH && unset MANPATH
+
 echo "==================================================================================="
 echo "PATH=$PATH"
 env | egrep ^LD_LIBRARY_PATH
