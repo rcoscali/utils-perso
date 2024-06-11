@@ -51,11 +51,7 @@ function del_dir_component_from_var {
     dir_comp=$1
     env_var=$2
     if $(test -n "$env_var"); then
-	new_val="$env_var=\$(echo \$${env_var} | sed -e \"s|$dir_comp||g\")"
-	eval $(echo $new_val)
-	new_val="$env_var=\$(echo \$${env_var} | sed -e \"s|::|:|g\")"
-	eval $(echo $new_val)
-	new_val="$env_var=\$(echo \$${env_var} | sed -e \"s|^:||g\")"
+	new_val="$env_var=\$(echo \$${env_var} | sed -e \"s|$dir_comp||g\" -e \"s|::|:|g\" -e \"s|^:||g\")"
 	eval $(echo $new_val)
 	if $(test -z $env_var); then
 	    unset $(echo $env_var)
