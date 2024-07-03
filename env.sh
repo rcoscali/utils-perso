@@ -23,7 +23,7 @@ function add_dir_component_to_var {
     dir_comp=$1
     env_var=$2
     new_val=$dir_comp$(echo "\${$env_var:+:}\$$env_var")
-    grep_cmd="echo \$$env_var | grep -q $dir_comp"
+    grep_cmd="echo \$$env_var | grep -q :$dir_comp:"
     if ! $(eval $grep_cmd); then
 	eval $env_var=$new_val
     fi
